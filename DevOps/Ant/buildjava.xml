@@ -1,0 +1,44 @@
+<project name = "JavaBuild" default = "run">
+
+	<!-- Defining the variables -->
+	<property name = "filename" value = "HelloWorld" />
+	<property name = "build_dir" value = "build" />
+	<property name = "jar_dir" value = "jar" />
+	<property name = "class_dir" value = "classes" />
+
+
+
+
+	<target name = "clean">
+		<echo> this is deleting exesting directories </echo>
+		<delete dir = "${build_dir}"/>
+		<delete dir = "${jar_dir}" />
+		<delete dir = "${class_dir}"/>
+    </target>
+	
+	<target name = "creatdir" depends = "clean">
+		<echo> this is creating required directories </echo>
+		<mkdir dir = "${build_dir}"/>
+		<mkdir dir = "${jar_dir}" />
+		<mkdir dir = "${class_dir}"/>
+    </target>
+    
+	<target name = "createclasses" depends = "creatdir">
+		<echo> this is compling java files </echo>
+		<javac srcdir = "${build_dir}" destdir = "${class_dir}"/>
+    </target>
+    
+	<target name = "createjar" depends = "createclasses">	
+		<echo> this is creating jar file </echo>
+		<jar basedir = "${class_dir}" destfile = "${jar_dir}/${filename}.jar">
+			<manifest>
+				<attribute name = "main-class" value = "${filename}"/>
+			</manifest>
+		</jar>
+    </target>
+    
+	<target name = "run" depends = "createjar">
+		<echo> this is running jar file </echo>
+		<java jar = "${jar_dir}/${filename}.jar" fork = "true"/>
+    </target>
+</project>

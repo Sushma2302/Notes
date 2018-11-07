@@ -1,0 +1,26 @@
+By defualt ansible configuaration file will be placed in /etc/ansible/ansible.cfg
+You can define the defualt parameters here.
+
+Simply copy this file into your directiry(Current dir)
+
+In this file we can define the inventory file
+
+inventory = path
+remote_user = user_name (can provide the defualt user here)
+
+setting ansible config file 
+
+we can do it in three ways
+1)
+export ANSIBLE_CONFIG=/temp/ansible.cfg (through shall variable), inthe first place it will check for the shall variable and will pick from that variable if it is 
+defined.
+unset ANSIBLE_CONFIG (to unset the variable)
+2)
+Present working directory (it will pick this file)
+3)
+place the config file in the home directory of the user (it will take automatically)
+This file should be a hidden file (.ansible.conf)
+4)
+And at last it will search in /etc/ansible/ansible.conf
+
+It will pick which ever it find first.

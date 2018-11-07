@@ -1,0 +1,58 @@
+How containers works
+
+Container is a place where we get an isolated environment for a application to run.
+
+Isolation means, it will get its own process owm memory and place to run(Any of this proces/memory/place cannot be shared by other containers)
+
+In general in OS we will be ahving userspaces. Here each container is one user space. So i can get the port 80 in each of the container
+
+For example in my apachetomcat container prot 80 is 9000 in my OS, againt port 80 in my ingenix container is 9001 in my OS. i can access those ports by using my 
+OS ports(9000,9001)
+
+To get the more clarity watch the vedio "DevOps Online Class 0n 10th Feb"
+
+Centos os linex flavour.
+
+Three importent concepts in container creation or container controll is 
+1. Namespaces
+2. cgroups
+3. capabilities
+
+Docker will follow the Kernal Namespace concept
+
+Docker relays on kernal version of linex.
+Docker will not intract with centos/ubuntu insted it will directly intract with kernal itself.
+thats whydocker will behave the same in any flavour if linex.
+
+Docker container will have a processID and all the processes with in the container will be treated as the child process for the parent process.
+
+Centos PID
+	Conteainer 1 (PID is 3)
+			Process wihch run the container (PID 3.1)
+			Process wihch run the container (PID 3.2)
+			Process wihch run the container (PID 3.3)
+	Conteainer 2 (PID is 4)
+			Process wihch run the container (PID 4.1)
+			Process wihch run the container (PID 4.2)
+			Process wihch run the container (PID 4.3)
+	Conteainer 3 (PID is 5)
+			Process wihch run the container (PID 5.1)
+			Process wihch run the container (PID 5.2)
+			Process wihch run the container (PID 5.3)
+
+we cannt kill the other process containers
+
+Namespaces
+
+The PID Namespace
+The NET Namespace
+The MNT Namespace
+The USER Namespace
+
+Other concent is Control Groups (cgroups)
+
+cgroups will control the memory space of your container.
+I want my container to run on 512MB-1GB. but not bayond that memory that i can achieve by using the containers.
+Even we can increase teh memory while running the container
+
+We have another concept called capabilities to give the access to the user. (This is like access controll)

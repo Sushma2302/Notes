@@ -1,0 +1,33 @@
+<project name = "Name of Project" default = "Default Build name to be called by the Ant, if you dont provide the Build name"
+			basedir = "base dir for all the files and path references, defualt vaule is current directory">
+			
+	<Target name = "Name of the target" depends = "Name of the depndent target to be execute before curent trarget" description = "Just like notes about this target">
+		
+		<Task>
+		</Task>
+		
+		<Task>
+		</Task>
+		
+	</Target>
+<Target name = "Name of the target" depends = "Name of the depndent target to be execute before curent trarget" description = "Just like notes about this target">
+		
+		<Task>
+		</Task>
+		
+		<Task>
+		</Task>
+		
+	</Target>
+	
+	<Target name = "Name of the target" depends = "Name of the depndent target to be execute before curent trarget" description = "Just like notes about this target">
+		
+		<Task>
+		</Task>
+		
+		<Task>
+		</Task>
+		
+	</Target>
+	
+</project>

@@ -1,0 +1,80 @@
+Scenario: Conflict if a perticular file -- how to solve the confilcts 
+
+Step 1: cloned the repositiory in hte node2,
+2,. cloned the repositiory in the node1
+3. added a line in the file form node2 and commited it followed by push statment
+4. now added a line in the same file form node1 and commted the file - here i got the below error
+
+#To https://github.com/Srinivas0717/Gitpractice
+# ! [rejected]        master -> master (fetch first)
+#error: failed to push some refs to 'https://github.com/Srinivas0717/Gitpractice'
+#hint: Updates were rejected because the remote contains work that you do
+#hint: not have locally. This is usually caused by another repository pushing
+#hint: to the same ref. You may want to first merge the remote changes (e.g.,
+#hint: 'git pull') before pushing again.
+#hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+
+Now tried to pull the central repo 
+#git pull -- them i have run into the nelow
+
+remote: Counting objects: 9, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 9 (delta 5), reused 9 (delta 5), pack-reused 0
+Unpacking objects: 100% (9/9), done.
+From https://github.com/Srinivas0717/Gitpractice
+   8c0c22e..fad1dbd  master     -> origin/master
+Auto-merging gittwo.txt
+CONFLICT (content): Merge conflict in gittwo.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+After the aobe result, if we open the gittwo.txt  it will be like 
+
+this file is added in gittwo node
+<<<<<<< HEAD
+
+agin this is added after adding second by gitoneuser  -- this line is adde in the current noed (node2)
+=======
+this line is added in gitone after pull it from origin -- this line was added by the other user, and it exists in the current centralized repo in github
+>>>>>>> 8c0c22e8986e13756fce71dc123bddaec44c86d6
+
+
+based on the requirement edit the file and do the add it again
+
+
+
+---- Branches
+
+git branch "New branch name"
+git checkout "New branch name"
+git branck -D "branch to delete"
+git branch -- to list out the available branches
+
+git push origin "New branch name" -- to push the changes from new branch to the mail server
+
+
+
+
+
+I have two branches with the following files in there:
+
+branch a:
+
+file_a
+file_b
+file_c
+branch b:
+
+file_a
+file_d
+file_e
+I want to merge them, so that I get both files from a and b (and files that exist in both should normally be merged)! is that possbile?
+
+
+in your case you would do the following:
+
+git checkout a (you will switch to branch a)
+git merge b (this will merge all changes from branch b into branch a)
+git commit -a (this will commit your changes)

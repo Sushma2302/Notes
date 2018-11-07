@@ -1,0 +1,40 @@
+ install wisSCP s/w to connect to the server and edit the files form windows interfaces.
+ 
+create a file named as inventary
+
+and provide the list in that file. 
+
+Rules
+One host per one line.
+startign with # will be ignored 
+any spaces in line will also be ignored
+
+By defualt we have two groups in inventary
+1. all
+2. nogroup
+
+to list the servers in the inventary use ansible command.
+
+#ansible -i inventory all --list-hosts
+
+For example we have 50 servers and 10 of the are production servers. 
+I want to change some configuaration in the prod servers only, 
+to achieve this, inventary file allows us to group the servers...... (Can find this in ansible docs also)
+
+Refer the "NamingConventionInRelatime.xlx" file for different grops. 
+
+We can pass the parameters to the hosts file. In the excel IP is the Host variable and datacenter, purpose are the group variables
+
+
+
+vim inventory -- to create 
+ansible -i inventory all --list-hosts
+ansible -i inventory INDIA --list-hosts
+ansible -i all --list-hosts
+ansible -i inventory all --list-hosts
+ansible -i inventory DBSERVERS --list-hosts
+ansible -i inventory all --list-hosts
+ansible -i inventory all --list-hosts
+ansible -i inventory all --list-hosts
+ansible -i inventory INDIAPROD --list-hosts
+ansible -i inventory ALLPROD --list-hosts

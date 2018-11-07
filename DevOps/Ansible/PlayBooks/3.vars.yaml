@@ -1,0 +1,25 @@
+- name: declaring variables in main section
+  gather_facts: false
+  hosts: all
+  vars:
+    Name: Srinivas
+    Name2: Sunny
+  tasks:
+    - name: printing variables data from global section
+      debug: 
+        msg: "Name = {{Name}}"
+    - name: printing variables data from global section
+      debug: 
+        msg: "Name1 = {{Name2}}"     
+        
+        
+    - name: printing variables data from local section
+      debug: 
+        msg: "Name = {{Name}}"
+      vars:
+        Name: Ponnaganti
+    - name: printing variables data from local section
+      debug: 
+        msg: "Name1 = {{Name2}}" 
+      vars:
+        Name1: Bunny Ponnaganti

@@ -1,0 +1,33 @@
+Changing jenkins home path :
+
+./tomcat9/bin/startup.sh -- started the tomcat
+mkdir jenkinshome -- created a new directory to change the jenkins home 
+
+cp -r /root/.jenkins /root/jenkins -- -- before changeing root dir copy the content of /root/.jenking (defualt directory) to new home dir
+
+export JENKINS_HOME=/root/jenkins -- we can chage the home dir of jenkins by using this command
+
+clear
+
+./tomcat9/bin/shutdown.sh 
+./tomca
+export JENKINS_HOME=/root/jenkinshome/
+
+cd tomcat9/
+
+cd webapps/
+
+cd jenkins
+
+cd ROOT/
+ls
+export JENKINS_HOME=/root/jenkinshome/
+cd ..
+
+rm -rf examples/ host-manager/ manager/ ROOT/
+ -- if we are running tomcat for only jenkins, we can remove all forders in @TOMCAT_HOME/webapps and rename jenkins.war to ROOT.
+ -- after this we can runjekins by using IP:8080 insted of IP:8080/jenkins 
+
+mv jenkins ROOT
+
+history

@@ -1,0 +1,81 @@
+Configure TOmcat with DB:
+
+Pre-Requiste:
+
+1) Need IP address of TOMCAT Server
+IP = 10.142.0.5
+2) Need IP address if DB Server.
+
+IP = 10.142.0.8
+
+------------------
+On DB NOde:
+------------------
+
+1) Follow this process to cereate DB.
+https://github.com/versionit/fortuna/blob/master/tomcat/DB_INSTALL_BASIC_COMMANDS
+
+2) Try to connect to DB and create one DB and related tables.
+
+# mysql 
+
+MariaDB> create database student;
+MariaDB> use student;
+
+Create one table:
+
+MariaDB> CREATE TABLE Students(student_id INT NOT NULL AUTO_INCREMENT,
+	student_name VARCHAR(100) NOT NULL,
+    student_addr VARCHAR(100) NOT NULL,
+	student_age VARCHAR(3) NOT NULL,
+	student_qual VARCHAR(20) NOT NULL,
+	student_percent VARCHAR(10) NOT NULL,
+	student_year_passed VARCHAR(10) NOT NULL,
+	PRIMARY KEY (student_id)
+);
+
+<Copy and Paste as it is>
+
+Verify wheteher table has been created or not.
+
+MariaDB> show tables;
+
+
+3) Provide access to Tomcat Sever to this DB.
+
+MariaDB> use mysql;
+MariaDB> GRANT ALL ON student.* TO 'student'@'10.142.0.5' IDENTIFIED BY 'student@123';
+
+
+-----------------
+On Tomcat Node:
+-----------------
+
+1) Update Tomcat configuration.
+
+Assuming tomcat installed in /opt/tomcat
+
+# vi /opt/tomcat/conf/context.xml
+
+#### Add the following content just before last line
+
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+username="student" password="student@123" driverClassName="com.mysql.jdbc.Driver"
+url="jdbc:mysql://10.142.0.8:3306/student"/>
+
+
+### Note: In above code IP address may change.
+
+2) Download and keep JDBC Connector.
+
+# cd /opt/tomcat/lib
+# wget https://github.com/versionit/fortuna/blob/master/tomcat/studentapp/mysql-connector-java-5.1.40.jar?raw=true -O mysql-connector-java-5.1.40.jar
+
+3) Restart Tomcat
+
+# /opt/tomcat/bin/shutdown.sh
+# /opt/tomcat/bin/startup.sh
+
+
+

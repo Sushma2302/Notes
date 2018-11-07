@@ -1,0 +1,28 @@
+pre-requisities:
+---------------
+   java    ---  yum -y install java-1.8.0-openjdk
+   
+   javac   --- yum -y install java-1.8.0-openjdk-devel
+
+maven uses pom.xml(project object modules) to define the project and it's dependencies. it will help to build the structure of the project,associate the files and help to build the application.
+
+Q)how to download and install maven?
+ 1)go to maven site , and download .tar.gz file
+ 2)extract the file (tar xvfz zpzxhe-mzven-xxx.tar.gz -C /opt/)
+ 3)configure it for a user 
+   M2_HOME=/opt/apache-maven-xxx
+   PATH=$PATH:$M2_HOME/bin
+  configure on command line and make them permanent so place in user home_dir ~/user/.bash_profile
+ 4)mvn --version
+  
+
+maven commands:
+---------------
+
+1)mvn archetype:generate  -- it will create a project structure
+2)mvn validate    -- it will validate project structure
+3)mvn compile     -- it will convert .java files into .class files
+4)mvn test        -- it will test .class files
+5)mvn package     -- it will help to create .jar,.war or .ear
+6)mvn install     -- it will install the package locally
+7)mvn deploy      -- it will install package remotely.

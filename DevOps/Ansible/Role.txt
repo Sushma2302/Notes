@@ -1,0 +1,4 @@
+Role is to organize the play books
+
+Templets are used to copy the configuaration files to the remote noes, also while copying we can change the parameters like IP address or Port number etc..
+See the detail explanation in D:\DEVOPS Class notes\Class Notes\ansible\ansible6.mp4 at 30:00 mins

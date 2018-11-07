@@ -1,0 +1,86 @@
+General extensions in Scriptions: 
+
+.sh/.bash/.ksh/.csh
+
+#!/bin/bash -- # Indicates that this line is commented - this is mabdatory to have this line in shall scription
+
+#!/bin/bash -- we call it as interpreter 
+
+
+echo command
+we have two options 
+1. -e (escape sequence)
+	\n new line
+	\t  new tab
+	\e  new colour
+	
+	(when ever we are using -e in echo always provide the input in "")
+	
+2. -n to disable new lines
+
+Standard Input and Output redirecors :
+
+command < filename -- data containd in the file will be passed to the command as input
+ 
+command > filename -- data returned by the command will be stored in the file
+ 
+we have 2 types of outputs 1. standard output and 2. standard error
+
+to read the standard output we have to use 1> and to read the standard error we have to use 2>
+
+ex: ls > out (If we dont mention anything that will be treated as 1>(defualt))
+ex: lss 2> out (as we dont have any command like lss it will throught an error. and will be stored in the out file)
+
+to store both the outputs in same file use &>
+
+ex: ls exestingfile non_exestingfile &>out (exestingfile returnds an output and non_exestingfile returns error and both will 
+		be stored in the same file that is out)
+		
+/dev/null is a special file which stores the output data and remove it. is will not store any where in the system
+
+#ls -l >/dev/null
+
+in scripts if you dont want to show any error messages or warning messags you shoul use redirect your output to /dev/null
+
+in this case we cannot understand weather the statment executes or failed.
+and in some cases the executin of one statment will depends on the above statment
+so we should write a logic based on the condition (success/failure)
+ to know the previous statment status we can use exit command.
+exit status:
+
+after executing any command it will return exit status. if it is 0 command is successful other then anything it is either failure or warning. 
+the exis status will return a number from 0-255	 
+
+to know the status use $?
+ex: echo $?
+
+it it returns 0 it is successful otherwise it is a failure
+
+in scripts we can use 1-125 
+the remaining codes will be used by system and we should not use them in our scripts.
+
+# man kill
+#kill -l 
+above statment will return the list of different signals kill command uses.
+
+typically an admin will use 1 to 15 commands and that too 1,2,9 and 15 will use mostly''
+9 - signal kill - to kill the process 
+1 - restart services 
+2 - signal intrupt means ctrl+call
+
+
+
+usually in scripts we use the following values 
+1 - input error - means did not provide any input where input requires
+2 - command errors - means provided an input but that is not valid
+
+126 - permission denied 
+127 - command not found
+
+`28 + n -- kill signals
+where n statns for kill signal number 
+
+for more details go through shell training 2 vedio (at 40 mins)
+
+	
+

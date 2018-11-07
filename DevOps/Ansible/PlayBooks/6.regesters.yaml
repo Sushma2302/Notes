@@ -1,0 +1,15 @@
+- name: using regestes to store the output
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: running uptime command on host mechines and store it in the registrs
+      shell: uptime
+      register: output
+      
+    - name: displaying value from register
+      debug:
+        msg: "{{output}}" # this will display the entire output
+        
+    - name: displaying value from register
+      debug:
+        msg: "{{output.stdout}}" # this will display the only uptime command output

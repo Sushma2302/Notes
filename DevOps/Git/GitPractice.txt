@@ -1,0 +1,95 @@
+Git installation steps:
+
+yum install git  -- to install the git 
+
+git --version -- to check the git version
+
+useradd gituser -- add a user with the name gituser
+
+passwd gituser -- create a password for the user (in thsi case password is git@123456)
+
+this is from the repo directory
+
+
+ 
+
+mkdir gituser-repo   -- created a directory gituser
+cd gituser-repo/ -- change the current working dir to repo
+
+git init  -- initilization of a git repository
+
+git clone https://github.com/Srinivas0717/NewOne -- cloning the data from the git hub
+
+cd NewOne/  -- change to new one
+
+rm FielTwo -- remover the file 
+
+git status  -- check the status
+
+
+
+vim FileTwo  ---- created a file
+
+git status  -- check the status
+
+ 
+git add FileTwo added a file to local repo
+
+git status  --- check the status. here only FileTwo added to the local repo but removed the fiel FielTwo
+git add .  -- Here trying to add all teh changed to the Local repo. but git not allwed me to do that. got the below message
+
+					warning: You ran 'git add' with neither '-A (--all)' or '--ignore-removal',
+					whose behaviour will change in Git 2.0 with respect to paths you removed.
+					Paths like 'FielTwo' that are
+					removed from your working tree are ignored with this version of Git.
+					* 'git add --ignore-removal <pathspec>', which is the current default,
+					ignores paths you removed from your working tree.
+					* 'git add --all <pathspec>' will let you also record the removals.
+					Run 'git status' to check the paths you removed from your working tree.
+
+
+git add --all -- used the --all option to add all the changes (insertions/edits/deletes) to the local repository
+
+git status
+
+fit commit -- tryed to commit the changes to master repo
+
+git commit --help
+git commit -m 'First Commit from GitUser' --here -m will let you proviode the comments , still am not able to commit the changes as the global name and email is not yet provided.
+
+
+-- below list of global settings
+
+git config --global user.name "Srinivas"
+git config --global user.email "srinivas0717@gmail.com"
+git config --global branch.autosetuprebase always 
+git config --global color.ui true 
+git config --global color.status auto 
+git config --global color.branch auto 
+git config --global core.editor vim 
+git config --global merge.tool vimdiff 
+git config --list 
+git commit -m 'First commit form the GitUser' -- commited the changes to local repo 
+
+git remote add origin(Alias name, we can give anything) https://github.com/Srinivas0717/NewOne -- this is to add the origin to the repo. Means changes will be pushed into this URL.
+
+git remote show origin -- to check the exesting origin.
+
+
+
+
+git push origin master -- push the changes to origin. (just refresh the date in the URL and will be able to see the changes)
+
+git stash -- Suppose you are implementing a new feature for your product. Your code is in progress and suddenly a customer escalation comes. 
+		Because of this, you have to keep aside your new feature work for a few hours. You cannot commit your partial code and also cannot throw away 
+		your changes. So you need some temporary space, where you can store your partial changes and later on commit it. In Git, the stash operation 
+		takes your modified tracked files, stages changes, and saves them on a stack of unfinished changes that you can reapply at any time. To apply stash files must be added to 
+		local repo (git add --all)
+		
+git stash list -- to listout the available stashes
+
+git stash pop -- to apply the backup changes to the local directiry
+
+git pull origin mater -- this will again pull the changes from repository to the local repo
+
+

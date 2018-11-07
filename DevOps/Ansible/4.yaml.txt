@@ -1,0 +1,71 @@
+Yaml:
+
+Yet another markup language
+
+yaml follows indentation.
+
+Every file will starts with --- and ends with ...
+this is not mandatory.
+
+defining the values in yaml. 
+key : value
+We have two major concepts in yaml.
+1. list
+2. dictonary / hash
+
+list: 
+	key:
+		- value1
+		- value2
+		
+dictonary
+	key:
+		key : value
+		key : value
+		
+Tabs are not allowed in yaml files
+
+
+Notes Playbook:
+
+By defualt ansible will create a .retry file if the play book fails to run. we can disable this in ansible.cnfg 
+
+Facts: host mechine information will be loaded into variables, these variables are valled facts. 
+#ansible all -m setup --> will display all the facts gathered form the host mechine
+
+we can define variables in yaml files in four ways.
+
+1. Global level in the play book
+2. Local level in the play book
+3. Reading from other file
+4. Reading on run time
+5. Registering variables
+
+1.
+We can define the variables in teh gloval level and these vars can be read on all the tasks defined in teat playbook
+ex: read 3.vars
+2.
+We can define the variables in the loval leval and these vars can be used with in the task only 
+ex: read 3.vars
+3. 
+We can define all the variables in a saparate file and can import the same fine in any number of playbooks. 
+Usually, will follow this when we are getting the variable from other teams, or we are using the same set of variables in different playbooks
+ex. read vars.yaml and 4.varsfromthefile.yaml
+4.
+we can prompt for the variable value while running the playbook. we use this method while gathering the passwords or any other sensitive information
+ex. read 5.varsprompt.yaml
+By defualt data which we enter on the command prompt will be in hidden mode, to see the date while entering use a option "provare: no" (5.varsprompt.yaml)
+5. 
+we run a command and store that value in the variable and will print that variables.
+
+Conditions and loops: 
+
+Need to understand the conditions clearly(ansible4.mp4)
+
+Loops in yaml. 
+see example 9.loops
+
+here we can define the items and based on items it will run the file 
+
+
+#yum provides "keyword" -- This will display the possible packages which has that keyword

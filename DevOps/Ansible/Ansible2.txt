@@ -1,0 +1,20 @@
+Ansible installation steps:
+
+1. create an instance
+2. create a keyset 
+3. place the public key in google cloud and provate file in ansible server
+4. change the provate file mode to 400
+
+
+
+Ansible Advantages:
+
+Agent Less
+Declarative - Not going to write real code, Will just write and it will be converted into code
+Modules - have much number of modules
+Uses Pythan - 
+Ansible is with RedHat - Very stable products as it is owned by RedHat
+
+
+to check the failure attempts in your servet you can check in 
+/var/log/sec

@@ -1,0 +1,56 @@
+Ansible examples
+
+$ ansible all -m setup 
+-- will display all the facts from the node
+-- can replace "all" with a perticular node
+
+# ansible all -m setup -a 'filter=facter_timezone'
+--will display fact relatd to the property given in filter
+
+
+setting ansible config file 
+
+we can do it in three ways
+1)
+export ANSIBLE_CONFIG=/temp/ansible.cfg (through shall variable)
+unset ANSIBLE_CONFIG (to unset the variable)
+2)
+place the config file in the home directory of the user (it will take automatically)
+3)
+Present working directory (it will pick this file)
+
+first it will check for the present working directory, then uset home directory and then it will pick the file from defualt dir /etc/ansible/ansible.conf
+
+Examples:
+
+ #ansible -m setup
+ #ansible all -m setup
+ #ansible all -m setup | gerp "OS"
+ #ansible all -m setup | grep "OS"
+ #ansible all -m setup -a 'filter:facter_timezone'
+ #ansible all -m setup -a 'filter=facter_timezone'
+ #ansible all -m setup
+ #ansible all -m setup -a 'filter=ansible_bios_date'
+ #ansible all -m setup -a 'filter=ansible_distribution'
+ #ansible all -m setup -a 'filter=ansible_distribution_major_version'
+ #ansible all -m setup -a 'filter=ansible_distribution_release'
+ #ansible all -m setup -a 'filter=ansible_distribution_version'
+ 
+ 
+ 
+ Yum installation help 
+ 
+erase          Remove a package or packages from your system
+info           Display details about a package or group of packages
+search         Search package details for the given string
+
+yum list installed
+yum list available
+yum list all
+
+
+
+
+Centos instalnce will automatcally showdown if we dont use it for10 min
+to prevent this comment the line in the folloing command
+#crontab -e

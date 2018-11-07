@@ -1,0 +1,24 @@
+To know the yum installation package details 
+
+$ rpm -ql package-name
+
+To check the SELINEX and firewall disabled or not ?
+
+	# sestatus
+	# iptables -L 
+	
+To know the running processes in linex 
+	
+	$ps -ef | grep http
+	
+Websites should be place in /var/www/html
+
+To quit without saving any changes, type :q! and press Enter . From VIM editor
+
+
+ tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.
+  tar -xf archive.tar          # Extract all files from archive.tar.
+
+  Multiple Tomcat and Apache instanses were configured in the below VM 
+  multiple-apacheinstences	

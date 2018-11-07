@@ -1,0 +1,77 @@
+Ansible is a configuaration management tool.
+
+It uses push mechanisim, means main server will push all the changes to the nodes. 
+
+Advantages: 
+
+It is agent less. (no other s/w is required to run in clint mechine)
+Declarative code
+Number moduels 
+It uses pythan. (if you want to change anything in code level you need to know pythan)
+It is with RedHat. (We will get the satable product as well as support) 
+
+Disadvantages:
+
+It is agent less (Some times it is disadvantage)
+It is for linex (Very less in windows)
+
+Ansible can read yaml format.
+
+Terminology: 
+
+PlayBooks(Will have multiple plays)
+Plays(Will have multiple Tasks)
+Tasks(WIll run one module)
+Module
+
+To unable the password authentication inseted of key you can run the below script in the server 
+https://raw.githubusercontent.com/carreerit/altus/master/vm-init.sh
+Above script includes basic linex and firewall, installing basic packages and it also enable password login(It will prompt for the password while installing)
+
+
+To login to the server using password goto putty or superputty or gitbash and give the servername like root@id and it wll prompt for the password.
+
+Installing the Ansible.
+
+Installing RPM (Generic installation).
+
+#yum install ansible -y -- will install the ansible
+
+Goto ansible docs, where we can find the RPM installation process.
+
+Inventary:
+
+usually companied maintain the list in excel.
+
+List of servers (List of servers in which we want to perform the operations) see the inventory file
+
+One way to execute the curl command, 
+
+#base < (curl -s URL (https://raw.githubusercontent.com/carreerit/altus/master/vm-init.sh))
+
+-- here -s is really importend, it will hide the downloading percentage display from the console.
+
+#ansible -i inventory all -u root -k -m ping
+
+Above command wil run the ping command and display the pong responce if it is able to connect the host mechine and 
+pythan is installed in the host mechine.
+
+-i -- provide the inventory file name.
+-u -- user name to connect the host mechine.
+-k -- will prompt for the passwoed to connect the host mechine.
+-m -- name of the module to run on host mechine, here we ran ping module.
+
+Same thing we can connect using the key file using the below syntax.
+
+#ansible -i inventory all -u srini --private-key=srini.pem -m ping (Here the order of parameters is not at all importent)
+-i -- provide the inventory file name.
+-u -- user name to connect the host mechine.
+--private-key -- provide the provate key file name including path(if it is not in the current directory).pem
+-m -- name of the module to run on host mechine, here we ran ping module.
+
+Lets try to use the other module "shall"
+
+#ansible -i inventory all -u srini --private-key=srini.pem -m shell -a uptime
+
+-m -- here we used the shall module
+-a -- arguments to the shell module (here we run the uptime command int the host mechines)

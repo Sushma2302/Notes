@@ -1,0 +1,11 @@
+To connect to other mechine through ssh, we need to paste the public key in the host mechine, to do that follow the below steps
+
+mkdir .ssh
+chmod 700 .ssh
+cd .ssh
+vim autherized_keys
+
+and paste the public key here
+
+Now we have to change the permissions to this file 
+chmod 600 autherized_keys.

@@ -1,0 +1,110 @@
+Jenkins
+
+initially started by SUN Micro systems
+
+Later combined with Hutson project
+
+Once SUN and merged into Oracle, One guy come out and and developed this Jenkins 
+
+But the source is hutson only, becuase Hutson is a open source project.
+
+jenkins:
+
+To CICD pipeline
+No waste of time as the buils will run as soon as the code commits
+
+
+
+Jenkins Beginner Tutorial 2 - How to install jenkins
+ ==================================================
+  - java application
+  - used for continuous integration and continuous delivery
+
+
+Step 1 : Download Jenkins war file - https://jenkins.io/
+
+Step 2 : Place the war file into any location on your system
+
+Step 3 : goto command prompt (windows) | terminal (mac)
+   - goto folder where jenkins.war is
+   - java -jar jenkins.war
+
+Step 4 : goto browser - http://localhost:8080 (Jenkins window should show up)
+
+Step 5 : install required plugins
+
+Step 6 : get started with Jenkins 
+
+
+Jenkins Beginner Tutorial 2 - How to setup Jenkins on Tomcat
+ ==================================================
+
+Why?
+Running Jenkins standalone (jetty/winstone) vs Running Jenkins on Tomcat
+
+Pre-requisite
+***Tomcat 5 or above***
+***java(7 or above) should be available***
+(https://www.youtube.com/watch?v=FqpmH...)
+
+Step 1 : Download Tomcat 
+
+Step 2 : Unzip and place tomcat folder at any location
+
+Step 3 : Copy/Place the jenkins.war file inside tomcat/webapps folder
+
+Step 4 : Goto commandpromt (cmd) - windows  |  terminal - mac
+  - goto tomcat/bin directory
+  - make all files executable : chmod +x *.sh
+
+In case of windows this command will not work. This step might not be needed if you are on windows. Else you can right click on the file/folder goto security tab and change the permissions.
+
+Can watch -   
+TOMCAT - How to install and run on Windows | Change Port | Run app
+https://youtu.be/ZIIkrn6LHW0?list=PLh...
+
+Step 5 : Start Tomcat : ./startup.sh
+  (to shutdown tomcat : ./shutdown.sh)
+
+Step 6 : verify if tomcat started : browser - http://localhost:8080
+
+Step 7 : verify if jenkins is running on tomcat : http://localhost:8080/jenkins
+
+*** To start jenkins (standalone) on a diff port***
+java -jar jenkins.war - - httpPort=9090
+
+
+
+
+Jenkins Beginner Tutorial 5 - How to create Users + Manage + Assign Roles
+==========================================================
+Jenkins authentication and authorization
+
+Today we will learn:
+———————————
+How to create New Users
+How to configure users
+How to create new roles
+How to assign users to roles
+How to Control user access on projects
+
+
+Step 1 : Create new users
+
+Step 2 : Configure users
+
+Step 3 : Create and manage user roles Roles Strategy Plugin - download - restart jenkins
+
+Step 4 : Manage Jenkins - Configure Global Security - Authorisation - Role Based Strategy
+
+Step 5 : Create Roles and Assign roles to users
+
+Step 6 : Validate authorization and authentication are working properlyJenkins
+
+initially started by SUN Micro systems
+
+Later combined with Hutson project
+
+Once SUN and merged into Oracle, One guy come out and and developed this Jenkins 
+
+But the source is hutson only, becuase Hutson is a open source project.

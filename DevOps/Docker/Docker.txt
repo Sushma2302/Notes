@@ -1,0 +1,70 @@
+Docker credentials
+
+srinivas/c!1018556
+
+
+
+	docker version -- to check the version details of a docker installed
+    docker ps -ef -- to show the running containers
+    docker ps -a -- to show all the containers (including exites)
+    docker images -- to show the exesting images
+    docker pull centos -- to pull and save the centos images form into local system
+   
+    docker run centos -- to launch the container (Run command will launch the container and do some background work and exit the container)
+    docker run centos echo "hello from busybox" -- to launch and run some commands in the container 
+					(This will launch the container and do some background (run the provided command) work and exit the container)
+   
+   
+    docker run -it centos -- to get into the container (this will open the command prompt in the container itself) -it flags attaches us to an interactive tty in the container.
+	
+	docker rm $(docker ps -a -q -f status=exited) -- to delete the all contaiers at single
+	
+	
+Images - The blueprints of our application which form the basis of containers. In the demo above, we used the docker pull command to download the busybox image.
+
+Containers - Created from Docker images and run the actual application. We create a container using docker run which we did using the busybox image that we downloaded. A list of running containers can be seen using the docker ps command.
+
+Docker Daemon - The background service running on the host that manages building, running and distributing Docker containers. The daemon is the process that runs in the operating system to which clients talk to
+
+Docker Hub - A registry of Docker images. You can think of the registry as a directory of all available Docker images. If required, one can host their own Docker registries and can use them for pulling images.
+
+
+	
+#docker run -ti(Terminal Intractive) -rm (container will remove once we get out of the terminal) image_name /bin/bash
+#docker status image/containerID ## it will show the image informaton (Like artifacts)
+#docker run -ti --name NameYouWantToGiveToAImage --hostname hostname image_name /bin/bash
+ -- here we mention the image name and host name
+#docker run -ti --name NameYouWantToGiveToAImage --hostname hostname -m 10m --memory-swap 20m image_name /bin/bash
+ -- here we mention the memory limit for this comtainer
+#docker run -ti --name NameYouWantToGiveToAImage --hostname hostname -m 10m --memory-swap 20m -c 128 image_name /bin/bash
+ -- here we mention the CPU limit using -c option
+#docker start/stop/pause/unpause/restart/rm container_name
+#docker rm $(docker ps -a(displays all means including stopped containers) -q(Only display numeric IDs)) -- it will remote all the containers in single shot
+
+	
+   
+   
+
+   
+Gitbucket image:
+ ----------------
+ - mkdir technicaladda
+ - cd technicaladda
+ - vi Dockerfile
+ From java:latest
+ MAINTAINER ramki info@google.com
+ LABEL env=prodution {label}
+ ENV apparea /data/app {environment variables}
+ Run mkdir -p $apparea  {while start the image this directory is created}
+ ADD ./gitbucket.war $apparea {add the file to this directory}
+ WORKDIR $apparea
+ CMD ["java","-jar","gitbucket.war"]  {run the gitbucket at the container start}
+ 
+ 
+after create the docker file build that file as image
+ - sudo docker build -t techmine/gitbucket:latest .
+
+To run that gitbucket image 
+ - sudo docker run -d -p 80:8080 techmine/gitbucket
+To login to the running container
+ - sudo docker exec -ti (container id) /bin/bash

@@ -1,0 +1,27 @@
+Below is the strecture of the roles:
+ roles/
+   common/
+     tasks/
+     handlers/
+     files/
+     templates/
+     vars/
+     defaults/
+     meta/
+     
+tasks - contains the main list of tasks to be executed by the role.
+handlers - contains handlers, which may be used by this role or even anywhere outside this role.
+defaults - default variables for the role (see Variables for more information).
+vars - other variables for the role (see Variables for more information).
+files - contains files which can be deployed via this role.
+templates - contains templates which can be deployed via this role.
+meta - defines some meta data for this role. See below for more details.
+
+
+Here we should create a role with the required tasks and then will call that role in our playbooks. 
+
+Note: If you get any error while installing or running a script saying that "some.extention"  is missing, 
+	We can ask YUM which software will provide this file by using the below command
+	#yum provides "FileName"
+	#yum provides "*/FileName"
+This will display the list of softwares which provide the mentioned file.

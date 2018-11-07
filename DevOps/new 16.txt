@@ -1,0 +1,17 @@
+Topics: 
+
+1.unix basics
+
+ant, maven
+
+git, svn
+
+jenkins
+
+ansible
+
+cheff
+
+docker
+
+

@@ -1,0 +1,7 @@
+ 1. If you run a ant command, it will look for the Built.xml in the first place. 
+	If you want to run it in the different file name we have three ways
+		1. ant -f filename.xml
+		2. ant -file filename.xml
+		3. ant -buildfile filename.xml
+		
+ 2. if you dont mention the defualt attribute in the 

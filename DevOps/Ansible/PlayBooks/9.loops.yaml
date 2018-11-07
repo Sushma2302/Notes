@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: to print the name in loos
+      debug:
+        msg: name = {{item}}
+      with_items:
+        - srinivas
+        - veeru
+        - ramu

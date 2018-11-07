@@ -1,0 +1,12 @@
+REDIRECTORS:
+Usually we will give input by keyboard& output by TerminalIf you want to give input by file we will use redirectors, if you want to give input by file we must create file
+
+STDIN-standard input means if you would like to take input from a file, instead of the command line
+	
+STDOUT-if you would like to redirect the output we will use STDOUT
+
+Assume if you want to get output& error in different file then?
+
+$ls srinivas ponnaganti 1>out 2>error
+ In the above example srinivas is a folder and exists in the current directory and ponnaganti is not there in the current directory, in that case output will be stored in out
+ file and the error will be stored in the error file 

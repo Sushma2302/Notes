@@ -1,0 +1,80 @@
+Web server - to maintail static contant -- apache
+Applocation server - to maintail dynamic content -- apache tomcat
+
+
+				Web server				application server
+port 			80						8080	
+Service			httpd					tomcat
+configuaration 	/etc/httpd/httpd.conf	/opt/apache-tomcat-version/conf
+hostion			/var/www/html			/opt/apache-tomcat-version/webapps
+
+
+
+
+
+
+We can install it in three ways
+
+1. RPM/YUM
+2. Source code
+3. Customized method
+
+
+we are following Customized method here. 
+
+Create a instance
+create a user tomcat
+
+add this user to sudo users list by following command
+#visudo
+
+here you will see 
+root ALL=(ALL)   ALL
+now add
+tomcat ALL=(ALL)   ALL
+after that tomcat user will be added to sudo users list
+#wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz -- download the tomcat
+#tar -xzvf apache-tomcat-8.5.34.tar.gz -C /opt/ -- to extract to opt dorectory
+
+if required change the owner and group permissions
+
+sudo chown -R tomcat apache-tomcat-8.5.34/
+
+to add the user and password goto 
+/opt/tomcat.XX/conf/tomact-users.xml and add the following lines
+
+<role rolename="manager-gui"/>
+<user username="tomcat" password="tomcat" roles="manager-gui"/>
+
+<role rolename="manager-script"/>
+<user username="tomcat" password="tomcat" roles="manager-script"/>
+
+now comment the code in the below file 
+
+/opt/apache-tomcat-9.0.12/webapps/manager/META-INF/context.xml 
+
+<Context antiResourceLocking="false" privileged="true" >
+<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+  <Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
+-->
+</Context>
+
+Now you will be able to login vies the manager apps page on the url http://ip/8080
+
+
+From logs you will see the below message:
+WARNING [Handling GET /jenkins/login from 138.75.235.105 : http-nio-8080-exec-6 Jenkins/login.jelly] org.apache.catalina.webresources.Cache.getResource 
+Unable to add the resource at [/WEB-INF/classes/jenkins/model/DefaultSimplePageDecorator/index.default.jelly] to the cache for web application [/jenkins] 
+because there was insufficient free space available after evicting expired cache entries - consider increasing the maximum size of the cache
+
+We will get this kind of messages if we not have sufficient memory alloted to tomcat to avoid this we can add the below line in $CATALINA_BASE/conf/context.xml
+block below before </Context>
+
+"<Resources cachingAllowed="true" cacheMaxSize="100000" />"
+
+
+
+
+
+	

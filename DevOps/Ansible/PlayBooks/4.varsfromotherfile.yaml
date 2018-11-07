@@ -1,0 +1,8 @@
+- name: reading variables from other file
+  hosts: all
+  vars_files:
+    - /root/ansible/vars.yaml  # this will read the variable mentioned from the file here. We can mention the absolute path or reletive path here. 
+  tasks:
+    - name: pring full name from variables file
+      debug:
+        msg: "First_name {{FirstName}} , Last_Name {{LastName}} , Middle_Name {{MiddleName}}"

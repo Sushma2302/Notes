@@ -1,0 +1,61 @@
+mvn archetype:generate -- to create a maven project
+
+# here it will create a project in intraction mode, 
+While creating it will ask you for the GroupID Ex: com.cssi
+ArtifactID Ex: Billing
+And for the Version : Provide the same what it provided at the command line
+Package Name: Ex: com.cssi.demo
+
+
+mvn clean
+
+mvn compile
+
+mvn test-complie
+
+mvn test
+
+mvn install
+
+
+
+-- Create and build a simple maven project 
+-- follow the steps 
+-- create a VM and install apache tomcat 
+-- and then deploy the jenkins and gitbucket on the tomcat
+
+-- download and deploy the apache maven into /opt/
+
+-- set the evnironment variables as follows
+
+
+export M2_HOME=/opt/apache-maven-3.5.4
+export PATH=$PATH:$M2_HOME/bin
+
+Now we need to creat a filder unser usedr and run the below command in that to create a maven project 
+
+mvn archetype:generate
+
+provide a project built number as  : 1206
+vesrsion as : 6
+
+and the remailing values as follows 
+
+Define value for property 'groupId': techmine
+Define value for property 'artifactId': sampelweb
+Define value for property 'version' 1.0-SNAPSHOT: : 
+Define value for property 'package' sampelweb: :
+
+it will cteate a sample maven project
+
+Usual flow in organizations:
+
+Initially create a master branch
+After thhat a development branch will be created as a fork of master 
+All the development and build test using maven will be done in the other branch
+
+If everything tested other branch will be merged into master branch
+
+
+
+sudo alternatives --config java

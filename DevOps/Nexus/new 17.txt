@@ -1,0 +1,31 @@
+Followed the link : https://drmanalo.github.io/blog/2017/installing-nexus-centos7.html
+
+
+    2  wget http://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    3  sudo tar xvf latest-unix.tar.gz -C /opt
+   14  ln -s /opt/nexus-3.13.0-01/ /opt/nexus
+    5  sudo adduser nexus
+    6  sudo chown -R nexus:nexus /opt/nexus
+    7  sudo vim /opt/nexus/bin/nexus.rc
+
+
+   11  cd /opt/
+   12  ls
+   13  rm nexus
+
+   15  cd nexus
+   16  sudo vim /opt/nexus/bin/nexus.rc
+   17  sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
+   18  sudo systemctl enable nexus
+   19  sudo systemctl start nexus
+   20  systemctl status nexus.service
+   21  yum install java
+   22  sudo systemctl start nexus
+   23  systemctl status nexus
+   24  ls /opt/sonatype-work/nexus3/etc/
+   25  ls /opt/
+   26  cd /opt/
+   27  ls
+   28  cd nexus
+   29  ls
+   30  history

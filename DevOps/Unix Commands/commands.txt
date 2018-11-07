@@ -1,0 +1,39 @@
+who -h
+who -help
+who --help
+wjo -l
+who -l
+who -d
+who -b
+w
+uptime
+w
+whoami
+who
+whoami
+uptime -V
+users
+crontab
+crontab -l
+crontab -e
+free
+free -t
+ls
+cd ..
+ls
+find srinivas
+fine root
+find root
+ps -ef
+ps -ef | grep init
+history
+
+cp command by defualt will ask for the overwriteh the files because it will alias to cp -i(Intractive mode). to skip for the conformation before the 
+overwritting we can use 
+1. yes | cp -rf files
+2. unalias cp -- it is for only corrent session
+3. \cp whatever -- by using \ before cp command
+
+chown --recursive $(whoami) ./* this will change the owner or for all the filse present in the current directory 
+
+wget -P /path/to/dowmload/ URL. -P will download the file in the specified path

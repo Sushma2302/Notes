@@ -1,0 +1,47 @@
+Install MariaDB Server:
+---------------------------------
+
+1) Disabe SELINUX and Firewall.
+
+#  curl https://raw.githubusercontent.com/versionit/docs/master/vm-init.sh | bash
+
+2) Install MariaDB package.
+
+# yum install mariadb-server mariadb -y 
+
+3) Start the DB .
+
+# systemctl start mariadb
+# systemctl enable mariadb
+
+
+Connect to DB and set the settings: (Ontime)
+-------------------------------------------------
+
+# mysql 
+
+To see all DB you have in this server
+
+MariaDB > show databases;
+
+To use (connect) one DB.
+
+MariaDB > use mariadb;
+
+To create a DB:
+
+MariaDB > create database sample;
+
+To see all tables;
+
+MariaDB> show tables;
+
+To see the data in a table;
+
+MariaDB> select * from <Table-Name>;
+MariaDB> use mysql;
+MariaDB> select * from user;
+
+If you need particular colums:
+
+MariaBD> select Host,User,Password from user;

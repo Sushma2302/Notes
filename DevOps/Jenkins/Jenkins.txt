@@ -1,0 +1,45 @@
+Jenkins:
+
+It is a open source, we dont get any support from the developer, but we have blogs where developers will answer your questions
+
+Cloud base:
+
+Cloud base took the jenkins and do some customizations and will provide the official support for that product.
+It is a paid version
+
+Spint - the cycle when the new release happes 
+For example jenkins spint is 3 months (For every three months there will be a majour release)
+
+Cloud base is a enterprise product (which is a paid version and will get the support)
+
+1)free style
+   we can integrate any fype of files.
+2)maven job
+   we can integrate only java files
+3)pipeline jobs
+  sequence of jobs, one job is connected to anothr job.
+4)multipipe line jobs
+
+Q)how to schedule a job in jenkins?
+ - get the code from scm server (gitbucket)
+ - setting trigger (build process trigger)
+ - setup build environment 
+ - build acion
+ - post build action
+ 
+ 
+build pipeline -- this plug in will give us a graphical representation of the pipeline jobs
+
+Usual flow in organizations:
+
+Initially create a master branch
+After thhat a development branch will be created as a fork of master 
+All the development and build test using maven will be done in the other branch
+
+To push the changes to master in the "Post-build Actions" section we should provide "orign" for the filed "Target remote name"
+
+once we create a war file, we can deploy it into tomcat server using the "deploy to container" plug in
+
+backup -- plug in will hekp us to create backups and restoes of current jobs and work spalces etc ..
+rolebased authorization strategy -- will allow us to create roles 
+and then we need to enable the roles in the configure global section  

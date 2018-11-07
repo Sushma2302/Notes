@@ -1,0 +1,41 @@
+Ansible Modules:
+
+Debug -- to pring the some message in the terminal
+
+shell -- to run the shall commands over the servers
+
+register: to store the output of the shall command in the varible -- it will no longer available if we run any other command after the shall command
+
+set_fact: to store the output of shall command in a veriable -- to use forther we are saving the data in the variable
+
+prompt: to ask for a variable value in the run time
+
+package: used to install the packages
+
+servieve: used to start or enable the services
+
+fetch: used to copy the data from remote node to ansible servers
+
+copy: used to copy the data from ansible server to node
+
+vault: used to encrypt or decrypt the playbook
+even we can do encryption and the decryption for a variable in the files see the ansible9 vedio for more details
+
+for more options ansible vault --help
+
+download the multiple files in different tagrgets using the loops
+
+get_urt:
+  url: {{item.URL}}
+  dest: {{item.DEST}}
+  
+  with_items:
+    - {URL 'url', DEST: 'destination'}
+	- {URL 'url', DEST: 'destination'}
+
+
+
+with_items: 
+ we will use this as a loop in yaml files
+ 
+ it will run the module for every item in the list 	

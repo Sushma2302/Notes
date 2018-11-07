@@ -1,0 +1,15 @@
+- name: using regestes to store the output
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: running uptime command on host mechines and store it in the registrs
+      shell: uptime
+      register: output  ###### saving the output value in a register
+      
+    - name: setting fact 
+      set_fact:
+        Name: "{{output.stdout}}" ###### assigning the saved value from the register to a fact
+        
+    - name: displaying value from fact
+      debug:
+        msg: "{{Name}}" # this will display the value from the fact

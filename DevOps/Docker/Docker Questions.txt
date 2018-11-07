@@ -1,0 +1,33 @@
+Docker: 
+
+Docker is a container management service. The keywords of Docker are develop, ship
+and run anywhere. The whole idea of Docker is for developers to easily develop
+applications, ship them into containers which can then be deployed anywhere.
+
+Features of Docker
+ Docker has the ability to reduce the size of development by providing a smaller
+footprint of the operating system via containers.
+ With containers, it becomes easier for teams across different units, such as
+development, QA and Operations to work seamlessly across applications.
+ You can deploy Docker containers anywhere, on any physical and virtual machines
+and even on the cloud.
+ Since Docker containers are pretty lightweight, they are very easily scalable.
+
+
+If vertualization is Hardware visualization then container is a OS visualization
+
+
+
+Q4) What is Docker image?
+
+Docker image can be understood as a template from which Docker containers can be created as many as we want out of that single Docker image. 
+
+Q5) What is Docker container?
+Docker containers include the application and all of its dependencies, but share the kernel with other containers, 
+running as isolated processes in user space on the host operating system. Docker containers are not tied to any specific infrastructure: they run on any computer, 
+on any infrastructure, and in any cloud.	
+
+Q6) What is Docker hub?
+
+Docker hub is a cloud-based registry service which allows you to link to code repositories, build your images and test them, stores manually pushed images, and links to 
+Docker cloud so you can deploy images to your hosts.

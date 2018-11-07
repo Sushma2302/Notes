@@ -1,0 +1,13 @@
+-
+  name: 'printing the messages based on conditions'
+  hosts: all
+  tasks:
+    -
+      name: 'message fro centosinstance1'
+      debug: { msg: 'this is ''centosinstance1''' }
+      when: ansible_distribution == "CentOS"    # here it will check for the ansible distribution and apply the conditions based on
+    -
+      name: 'message for centosinstance'
+      debug: { msg: 'this is ''centosinstance''' }
+      when: ansible_distribution == "ubuntu"
+

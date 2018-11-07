@@ -1,0 +1,72 @@
+
+
+Install tomcat with binary distribution
+
+1) Download tomcat 
+
+# cd /opt
+# wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.0.42/bin/apache-tomcat-8.0.42.tar.gz
+# tar -xf  apache-tomcat-8.0.42.tar.gz
+# mv apache-tomcat-8.0.42 tomcat1
+
+# tar -xf apache-tomcat-8.0.42.tar.gz
+# mv apache-tomcat-8.0.42 tomcat2
+
+
+2) Start the tomcat instances
+
+Tomcat1 :
+	i) # cd /opt/tomcat1/bin
+           # ./startup.sh 
+
+	ii) # /opt/tomcat1/bin/startup.sh 
+
+Tomcat2:
+	# /opt/tomcat2/bin/startup.sh 
+
+3) Stop the tomcat instance.
+
+Tomcat1 :
+# /opt/tomcat1/bin/shutdown.sh
+
+Tomcatt2 :
+
+# /opt/tomcat1/bin/shutdown.sh
+
+
+-----------------------------------------
+Changing port number :
+
+Change it in 5 locations in a file server.xml
+
+
+1) Line No 22 : 8005 -> 9005
+2) Line NO 69 : 8080 -> 9090
+3) Line No 71 : 8443 -> 9443
+4) Line NO 116 :
+				8009 -> 9009
+				8443 -> 9443
+
+-------------------------------------------
+
+Tune tomcat startup:
+
+Assuming the tomcat is from Source.
+
+1) Disable JAR file scanning.
+
+Edit : <tomcat-source>/conf/catalina.properties
+
+tomcat.util.scan.StandardJarScanFilter.jarsToSkip=*
+
+Note : Referece Link : http://www.gpickin.com/index.cfm/blog/how-to-get-your-tomcat-to-pounce-on-startup-not-crawl
+
+2) Add WAR file security disable.
+
+Edit : <tomcat-source>/bin/catalina.sh
+
+From : 
+JAVA_OPTS="$JAVA_OPTS -Djava.protocol.handler.pkgs=org.apache.catalina.webresources"
+
+TO:
+JAVA_OPTS="$JAVA_OPTS -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Djava.security.egd=file:/dev/./urandom"

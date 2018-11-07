@@ -1,0 +1,11 @@
+mkdir -p --> -p will check for existecy. if file is not there it will create, if it exists nothing will do. it doesnot throw any exception.
+and, it will create entire path which we mention in the mkdir parameter.
+mkdir -p srinivas/srinivas/srinivas/srinivas
+
+for the above command it will create entire strecture even though first srinivas folder not exists.
+
+cp -r srinivas --> will copy the entire data into new destination.
+
+cp -ra --> will copy the enitire data into new destination with out changing the time stamp
+
+cd - --> wil chage the path to previous directory 

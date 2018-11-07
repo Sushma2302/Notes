@@ -1,0 +1,124 @@
+-- git installation
+
+yum install git
+
+git repo -- to create a master repository
+git --bare repo -- to create a master repository
+
+Git is a version control system and it is a free (Open source)
+
+different tools available in VCS:
+
+Git/SVN/P4/Clear Case/Bit Keeper
+
+It will be usefull to track the text files, will not be able to rack the Vedio, sound or Photes.
+
+to initiate git use the command #git init 
+it will initiate the git which includes 3 phases
+
+1. Working_dir
+2. Stage/Catch
+3. Local_repo
+
+We need to configure the git before pushing changes to remote to let the remote repo on who did the changes
+we can do it in three ways
+
+1. System  /etc/gitconfig --it will set the details at system level
+#git config --system {}
+
+2. User   ~/.gitconfig or /home/user/.gitconfig
+#git config --global {}
+
+2. Project   ~/.git or /home/user/.git
+#git config {}
+
+Usually we use --global 
+git config --global user.name "Srinivas"
+git config --global user.email "srinivas0717@gmail.com"
+git config --global branch.autosetuprebase always 
+git config --global color.ui true 
+git config --global color.status auto 
+git config --global color.branch auto 
+git config --global core.editor vim 
+git config --global merge.tool vimdiff
+
+
+Now add any file to working directory
+to add them to staging area use
+git add <filename>/.(current directory)/--all 
+
+Now to add them to local repository use
+git commit -m "commit message"
+
+To know the list of commits we can use
+
+#git log (It will show(SHA1 Number - a randomly generated 40 charactors length hexadecimal number) the list of commits happened in the repository)
+#git log --oenline (it will give breaf info only)
+#git log --since=2018-12-31
+#git log --until=2018-12-31
+#git log --author="srinivas"
+#git log --grep="keyword for grep"
+#git log --diff commitid..commitid --It will show the difference between two commits
+
+We can apply morethen one filter at a time 
+#git log --since=2018-12-31 --until=2018-12-31 --author="srinivas"
+
+
+To know about perticular commit we can use
+#git show commitid
+
+git will not track empty directories
+
+
+Collection of commits is branch
+to see the difference b/w branches 
+
+#git banch (To list the branches)
+#git banch branchname (To create a branch)
+#git banch -d branchname (To create a branch and checkout to that branch)
+#git banch -d branchname (To delete a branch)
+#git banch -D branchname (To delete a branch forcefuly)
+#git diff branch1..branch2
+#git merge new (It will merge the changes from "new" branch to current branch)
+
+To add and commit in a single shot
+
+#git commit -am "commit message"
+Here it will work only for exesting fils. Means, i have a file in working directory but not in staging area then this command will show error.
+If i have a file with same name in working directory and staging area then the modifications can be added and commited using a single command.
+
+We can modiy the latest comit message (Only latest commit, we cannot modify the previous commit messages)
+
+git commit --amend -m "Commit message"
+
+We can add the new changes to the last commit along with the commet message change.
+
+Ex: I have commitd the working directory with commit message "commit message". 
+Now i have to modify one file content and need to add this changes in the last commit, we can do that 
+#got commit --amend -am "commit message" Filename_to_add
+
+I have a file named File_One in staging directory and local repo, but some how/ by mistake i have lost the file in working directory
+I can get the file form staging area to working directory
+#git checkout filename
+
+To delete the file from all the areas working/staging/local repository
+#git rm filename
+
+#git mv old_file new_file -- this will change the file anme in staging area and local repository as well
+
+To ignore the files from adding to staging
+1. create a file with name .gitignore
+and add the fiels names to ignore, for exampel i dont want to .pub files while adding the files then create a file with the name .giignore and add *.pub in that file.
+
+After adding *.pub in the ignore files list i want to add 1.pub forcefully
+#git add -f 1.pub
+
+We can reset the data to a perticular commt 
+#git reset commitid (By defualt it is --soft)
+
+We have three types of resets
+1. git reset --soft commitid -- it will delete the latest commit files from local repository only
+1. git reset --mixed commitid -- it will delete the latest commit files from local repository and staging area 
+1. git reset --hard commitid -- it will delete the latest commit files from local repository, staging area and working directory
+
+Head is top commit 

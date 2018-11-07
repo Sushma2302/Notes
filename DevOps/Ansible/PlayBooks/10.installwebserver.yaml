@@ -1,0 +1,60 @@
+- name: Installing web server
+  hosts: all
+  become: true
+  tasks:
+    - name: install packages for web server
+      package:
+        name={{item}}
+      with_items: 
+        - httpd
+        - httpd-devel
+        - gcc
+        - java  # will require java to run the application server , so installing it here
+    - name: start web server
+      service:
+        name: httpd
+        state: started
+        
+        
+- name: Installing application server
+  hosts: all
+  become: true
+  vars:
+    URL: "http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.2/bin/apache-tomcat-9.0.2.tar.gz"
+  tasks:
+    - name: download tomcat 
+      get_url:
+        url: "{{URL}}"
+        dest: /opt/tomcat.tar.gz
+    - name: Extract foo.tgz into /var/lib/foo
+      unarchive:
+        src: /opt/tomcat.tar.gz
+        dest: /opt
+        remote_src: yes
+    - name: tocheck whether tomcat is already running or not
+      shell: ps -ef | grep /opt/apache-tomcat-9.0.2 | grep -v gerp
+      register: out
+      ignore_errors: yes  # if the output of the shell command is null and the return status if the output is 1, ansible will throw error and 
+                       # exit the system with out running the remaining commands, ignore_errors will run the remaining commands as well.
+    - name: starting service
+      shell: nohup /opt/apache-tomcat-9.0.2/bin/startup.sh ## some times when we are using java program to run teh applications it wont start properly, here we can use nohup to run them properly
+      when: out.rc == 1
+
+- name: installing DB server 
+  hosts: all
+  become: yes
+  tasks:
+    - name: installing mariaDB
+      package:
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - mariadb
+        - mariadb-server
+    - name: starting mariaDB
+      service:
+        name: "mariadb"
+        state: started
+        enabled: yes
+        
+      

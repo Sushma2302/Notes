@@ -1,0 +1,16 @@
+- name: getting variables on runtime
+  hosts: all
+  gather_facts: no
+  vars_prompt:                    # this will prompt for the varialbe while run the file 
+    - name: FirstName
+      prompt: What is FirstName
+      private: no                  # if we mention this option , we can see the date while entering at command prompt.
+    - name: LastName
+      prompt: what is LastName
+    - name: MiddleName
+      prompt: what is MiddleName
+      private: false
+  tasks:
+    - name: siaplaying the gathered data
+      debug:
+        msg: " FirstName = {{FirstName}}, LastName = {{LastName}}, MiddleName = {{MiddleName}}"

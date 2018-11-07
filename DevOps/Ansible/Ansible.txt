@@ -1,0 +1,11 @@
+To get Ansible for CentOS 7, first ensure that the CentOS 7 EPEL repository is installed:
+
+$sudo yum install epel-releas
+$sudo yum install ansible
+
+
+Open the file with root privileges like this:
+sudo vi /etc/ansible/hosts
+
+to know the list of hosts : ansible -i inventory all --list-hosts (inventory file should be inthe current dir)
+ansible -i inventory all --ssh-extra-args="-o StrictHostkeyChecking=no" -u admin --private-key=admin -m ping #### refer vedio merger-2017-05-19 at 08-13-24-Track9_(new)

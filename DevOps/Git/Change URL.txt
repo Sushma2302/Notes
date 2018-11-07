@@ -1,0 +1,8 @@
+git remote set-url origin git://new.url.here
+
+
+we can change the URL with the above command
+
+
+
+sudo alternatives --config java

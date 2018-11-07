@@ -1,0 +1,124 @@
+read -p "Enter A value " a -- this satatmetn will print the message and will read the input and assign it to the variable "a"
+
+read -p "Enter A value " b -- this satatmetn will print the message and will read the input and assign it to the variable "b"
+
+echo "addition is : $(($a+$b))" -- this will print the sum of a and b 
+
+shift -- 
+ingeneral shall we cannot print more then 9 variables using $. ex: $1, $2, $3, $4, $5, $6, $7, $8, $9 will work but not $10. 
+here shift will shift hte valus which we passed. 
+
+
+Script: print.sh
+#! /bin/bash
+ echo $1, $2, $3, $4, $5, $6, $7, $8,$9
+shift
+shift
+shift
+shift
+shift
+shift
+shift
+shift
+shift
+echo $1, $2, $3
+
+execution: bash print.sh 1 2 3 4 5 6 7 8 9 10 11 12
+result; 
+
+1, 2, 3, 4, 5, 6, 7, 8,9
+10, 11, 12
+.first shift will shift the variables one place, means it will consider second variable as first variable. so on ....
+
+If we want to encrypt our file we can do that by using "shc" command. it will run as normal script but one cannot see the code.
+shc- it will create a file with the extention .x.c followed by the original name
+
+
+Control flow statments:
+
+Example 1:
+#! /bin/bash
+
+read -p "Enter first value:" a
+read -p "Enter second value" b
+read -p "enter action to perform add/sub/mul/div" op
+
+case $op in 
+add | ADD) echo "addition = $(($a+$b))"
+exit 0
+;;
+esac
+
+op=$(echo $op | tr [:upper:] [:lower:])
+case $op in
+sub) echo "subtraction = $(($a-$b))";;
+
+mul) echo "multiplication = $(($a*$b))";;
+
+div) echo "division = $(($a/$b))";;
+
+*) echo -e "\e[46m enter a valid operator"
+
+esac
+
+
+Example2:
+
+#! /bin/bash
+
+
+echo  -e " 1.Check memory  \n 2.Check CPU \n 3. Check Disk usage \n 4.Exit"
+read op
+
+
+
+case $op in 
+1) free -m | awk '/^Mem/ {print "Total Memory : " $2 "\nUsed Memory : "$3  "\nFree memory : "$4}';;
+
+2) uptime | awk -F , '{print $(NF-2)}';;
+
+3) df -m | grep -v Filesystem | awk '{print "File System:" $1", Used" $3 ", Available:" $4 }';;
+
+4) exit 0;;
+
+*) echo -e "\e[46m enter a valid operator"
+
+esac
+
+
+  If [-z  “$a” ];  --- here -z option chech for empty value, ex: command line is expecting a value and we simply press enter with out provide any value, then it will be a empty 
+  space and it will throw am script error. 
+  
+  
+  
+  
+  Common mistakes include:
+  
+  Editing the script on Windows, which produces incorrect line ending characters that Bash cannot handle.
+A common symptom is : command not found where the carriage return has forced the cursor to the
+beginning of line, overwriting the text before the colon in the error message.
+The script can be fixed using the dos2unix program.
+An example use: dos2unix hello-world.sh
+
+
+
+Using sh ./hello-world.sh, not realizing that bash and sh are distinct shells with distinct features (though
+since Bash is backwards-compatible, the opposite mistake is harmless).
+Anyway, simply relying on the script's shebang line is vastly preferable to explicitly writing bash or sh (or
+python or perl or awk or ruby or...) before each script's file name.
+A common shebang line to use in order to make your script more portable is to use #!/usr/bin/env bash
+instead of hard-coding a path to Bash. That way, /usr/bin/env has to exist, but beyond that point, bash just
+GoalKicker.com – Bash Notes for Professionals 4
+needs to be on your PATH. On many systems, /bin/bash doesn't exist, and you should use
+/usr/local/bin/bash or some other absolute path; this change avoids having to figure out the details of
+that.
+
+
+
+echo "what are you doing"
+read action
+
+echo "you are "$action"ing"  --to append teh string while printing
+echo "you are ${action}ing"   --to append teh string while printing
+
+; Treats as a end of line where as \ treats as the next line in the same line

@@ -1,0 +1,41 @@
+Maven repositiries:
+
+We have 3 typs of repos in maven
+1. Proxy
+2. Hosted
+3. Group
+
+
+1. Proxy:
+
+It will be linked to the central/Public repos and download the packages for the first time when thay are used and next time it will be used from the catche.
+For examle maven used the central repository for many of the jave builds and it will download the huge data, here we can create a proxy to the maven central repository
+so that packages will be downloades only once from the central repo
+
+2. Hosted:
+
+In any organization, one have a own developed packages which are restriocted to local (with in the organization), in this case we can go with the hosted repository.
+Also, it will help to share the date between the developers with in the organization
+
+3. Group
+
+It is the combination of the proxy and hosted(snapshots and/or releases). So that developers can have the singale poing of contact for any hosted or proxy repos
+If we want to add the data to hosted we can directly add from the single point URL.
+
+
+
+https://help.sonatype.com/learning/repository-manager-3/first-time-installation-and-setup/lesson-1%3A--installing-and-starting-nexus-repository-manager
+For more details check the above link
+
+
+
+Best practive is to deploy the nexus and maven files in /opt/ .. 
+
+
+
+
+To create a simple java application:
+mvn archetype:generate -DgroupId=com.javacodegeeks -DartifactId=SampleApplication -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+sudo alternatives --config java

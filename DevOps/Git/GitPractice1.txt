@@ -1,0 +1,131 @@
+creaated a new user gituser1 to do the modification parallelly to the gituser 
+
+mkdir gituer1_repo
+cd /home/gituser1/
+cd gituser1/
+git init  -- initialized a got repo inside this folder
+ls
+ls -a
+
+git clone https://github.com/Srinivas0717/NewOne -- cloned the data from the URL into local folders
+ls
+cd NewOne/
+ls
+git diff
+git status
+git log
+ls
+vim log -- here we can see the all the push opereations from other users aswell
+ls
+git status
+git status -s -- show the status in short form
+git add log -- added the file "log" to local repo
+git status
+git log
+git reset 67bbe37bb187e564e549370e69bbcb7c9e511953 -- reset to the previous commit (it will rollback all the changes and left with that data -- need to unserstand it more)
+ls
+cat FileTwo 
+git log
+
+cat FileTwo 
+git diff
+git add .
+git add all 
+git all -all
+git add --all
+git status
+ls
+git commit -m 'First commit from gituser1'
+git config --global user.name 'gituser1'
+git congit --global user.email 'gituser1@gmail.com'
+git config --global user.email 'gituser1@gmail.com'
+git commit -m 'First commit from gituser1'
+git push origin master
+git clone
+git clone 
+git pull
+ls
+rm log
+git pull
+git commit -a -- it will commit all the changes (including the added files, edited, and deleted files)
+ls
+git pull
+git add .
+git commit -a -m 'first commit from gituser1' 
+git push origin master
+git commit --help
+exit
+cd /home/gituser1/
+
+
+Observations: 
+
+We cannot push the data if we have latest commit in the server(URL). Git will restrict us from doing push operation
+and it suggest to clone the latest repo from the server form before pushing the changes
+ git pull -- it will pull the changes form the master repo (URL). if we have any extra files in our local repo, those will be vanished.
+ But any any data changes in the same file will be available after pull
+ Ex: have a file names as 1.txt in URL.
+ and have a file with same name in the local repo but more lines (data) when compared to URL, this data will be remains available
+ 
+ 
+git checkout filename -- this wil revert the changes made to the file
+
+ 
+cat .git/refs/heads/master  -- this is the place where all the heads stores. this always store the latest head of the branch
+
+git log -2 -- this will displays the last 2 commit logs
+ 
+ 
+--soft : 
+Each branch has a HEAD pointer, which points to the latest commit. If we use Git reset command with --soft 
+option followed by commit ID, then it will reset the HEAD pointer only without destroying anything. 
+
+
+git reset --soft HEAD~  -- Now, we just reset the HEAD pointer back by one position. Let us check the contents of .git/refs/heads/master file. 
+
+Through this command, we can checkout the changes from the commit head. 
+Ex. Added 2 lines in the FIle1
+Added it to the repo throught #git add .
+Now commeted it to local repo throgh #git comit -m 'Commited file1 changes'
+Now, i want to rellback the changes which made in the file1. But these changes are already commited.
+We can rellback this changes to the previous commit by pointing the previous HEAD by using the above command. 
+These changes will be ramailne the same in the local files ie. file1. but not in the commited data.
+
+git log -2
+git push origin master
+
+-- Creating Tags:
+
+#git tag -a 'Release_1_0' -m 'Tagged basic string operation code' HEAD
+-a represents tag name, HEAD represents latest commit. if you want to add a tag for a different commit you can provide the commit code here
+
+ #git push origin tag Release_1_0 
+ This is to push the tag to the server
+ 
+# git tag -l -- to view the exesting tags 
+
+#git tag -d Release1 -- to delete the tags
+
+#git push origin :Release1 to push the chagnes to the server
+
+Pathc file: Patch is a text file, whose contents are similar to Git diff, but along with code, it also has metadata about commits; e.g., 
+commit ID, date, commit message, etc. We can create a patch from commits and other people can apply them to their repository. 
+
+Jerry uses the Git format-patch command to create a patch for the latest commit. If you want to create a patch for a specific commit, 
+then use COMMIT_ID with the format-patch command. 
+
+#git format-patch -1 --The above command creates .patch files inside the current working directory.
+
+Any other user can apply this patch -- git apply 0001-Added-my_strcat-function.patch 
+
+
+--mixed 
+Git reset with --mixed option reverts those changes from the staging area that have not been committed yet. It reverts the changes from the staging area only. 
+The actual changes made to the working copy of the file are unaffected. The default Git reset is equivalent to the git reset -- mixed. 
+
+--hard 
+If you use --hard option with the Git reset command, it will clear the staging area; it will reset the HEAD pointer to the latest commit of the specific 
+commit ID and delete the local file changes too. 
+
+
+sudo alternatives --config java

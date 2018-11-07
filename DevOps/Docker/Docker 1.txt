@@ -1,0 +1,102 @@
+Docker is a container 
+
+Advantages:
+
+We can run any number of containers in one OS.
+Each container is a process in the mail OS where as in VM ware every VM itself a OS.
+In this way we can save memoey and processing power.
+Container can bring up in seconds where as VM tale minutes to start
+Effective space and memory and process management.
+
+Docker internally uses name spaces(name spaces concept is there in the linex from the begining)
+
+Docker is for both stateless and stateful. it uses micro services 
+
+Disadvantages:
+
+Less control compared to VM. For example in VM we can give different access controls for four VM mechines where as we can give only one 
+leven of access to the four containers running in the same mechine.
+
+Stateful vs statteless
+Stateful means which stores the date where as stateless means will not store any date but only respond to the incomming requestswith the static data
+
+Container registery(Docker HUB) is like a play store for dicker
+
+Job of the services is to recive the request from different application and give them to the other services, this is called rest services
+
+Service doesnot require any storage space 
+
+To login we need a rest services, everything will be a thin services and this small services are called micro services
+
+
+Docker containers are for the web applications but not for the windows application. Ex: we can not have a container for the excel or word (Any application which requires
+installation on mechine), but we can have a docker container for any web application
+
+Containers are two types
+1. Private (Accable to perticular users who have access)
+2. Public (Any one can use them)
+
+
+#docker run centos -- 
+the above statment will first check for the image locally , if not available it will search for the image in docker hub. 
+
+#docker images 
+List out the images available locally
+
+#docker ps -- Will list the containers running in the mechine
+#docker ps -a -- will list the all the containers (Including inactive containers)
+
+Docker can be executed in 2 modes 
+1. Foreground mode _ It will be keep us on the container terminal but not in mechine Ex: docker run hello-world
+2. Detached mode _ in this mode we will get the terminal back once it is started  Ex: docker run -d hello-world
+
+Run command will be used for only once. It will create a new container everytime we run the "run" command 
+Means, If i user the command "docker run centos" - it will download the centos container and it will run the container and stop it.
+If i want to run the same container again we need to use start and stop comands but not the run command. if we run the "run" command again it will 
+create a new container
+
+To start the container # docker start containerID
+
+Dokcer will be installed in the following path /var/lib/docker/
+
+We can give names to the docker images by passing parameter -name Name_of_container 
+If we dont pass a name docker will give a name randomly
+
+We can remove the container using rm command
+
+docker rm dockername/dockerid
+
+we cannot delete the docker images until we delete all the container which were created by that image.
+
+to remove image 
+#docker rmi imageID
+
+We can create the images from other images as well. 
+
+
+
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context
+
+When we write a docker file FROM must be the first statment.
+
+
+FROM ImageName<:tag(Nothing but version)>
+Ex: FROM Jenkins:7.651
+Best practice is to metion the tag value.
+
+
+##Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.##
+
+Any docker file will contain the following fields
+
+FROM imageName<:tag>
+MAINTAINER srinivas0717@gmail.com(Email ID)
+RUN  # It will executes when ever you creating a container out of this image
+CMD  # this will execute when ever your container started 
+
+Once we write the file we need to create a image from this file to do that 
+# docker build -t name_of_image:latest .(Path of the Dockerfile)
+
+Fro refference https://github.com/asquarezone
+
+While downloading the images it will download few more things which we can see on the comamnd line screen, those are called image alyers 
