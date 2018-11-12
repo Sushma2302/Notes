@@ -1,0 +1,59 @@
+We have two pragmas in perl
+1. strict
+2. warnings
+
+
+1. strict:
+
+It will force script to declare the scope of the variables.
+Identifies the bugs.
+
+
+2. warnings
+
+Missing semicaolans
+Wrong syntax
+Depricated functions
+Declaring a variabels with same name again
+
+
+Conditional operators:
+
+if
+if..else
+if..elsif..else
+unless
+unless..else
+unless..elsif..else
+switch
+
+Ternory operator:
+(condition)?<true>:<false>
+
+
+Loops:
+
+while
+do..while
+until 
+for
+fireach
+while..each
+nested loops
+
+
+Loop control statments:
+
+next :  Skips the remaining code based on condition and re-iterates through the loop
+
+last: terminates the loop
+
+continue: Block in continue is executed just before the next iteration
+
+redo: restarts the loop with out evelauting the condition
+
+goto: jumps the statment with given lable, expression or subroutine
+
+infinite loop or recursive loop: executes where condition never becomes false
+
+for(;;) is used for run with out a condition recrsively, to stop this we can use ctrl+c to come out of the execution
