@@ -1,0 +1,19 @@
+Subroutines(Functions):
+
+Declaration: 
+	Sub keyworld followed by the name and curly braces
+
+Calling a Subroutine:
+	Subroutine(arguments)
+	&Subroutine(arguments) #in previous versions of PERL 5 
+	
+Passing arguments to Subroutine:
+	- shift
+	- $_[0], $_[1], $_[2], ...
+	- @_
+	
+Return values from Subroutine:
+	return keyworld is used to return values followed by a scalar or a list.
+	
+
+	

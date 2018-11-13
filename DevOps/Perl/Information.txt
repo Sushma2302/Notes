@@ -57,3 +57,77 @@ goto: jumps the statment with given lable, expression or subroutine
 infinite loop or recursive loop: executes where condition never becomes false
 
 for(;;) is used for run with out a condition recrsively, to stop this we can use ctrl+c to come out of the execution
+
+
+Arthematic operatirs:
++, -, *, /, %, **(Exponential)
+
+Numeric relational operators:
+Equal to --> ==
+Not equal to --> !=
+<=> --> checks which side number is less, eqaul or grater and returns -1, 0, 1 
+Grater then --> >
+Lessthen --> <
+Grater then or equal to --> >=
+Lessthen or equal --> <=
+
+Ex:<=>
+
+my $num1 = 12
+my $num2 = 14
+my $result = $num1 <=> $num2
+#result will be -1 as $num1 < $num2
+my $result = $num2 <=> $num1
+#result will be 1 as $num2 > $num1
+
+String relational operators:
+
+Equal to --> eq
+Not equal to --> ne
+cmp --> checks which side number is less, eqaul or grater and returns -1, 0, 1 
+Grater then --> gt
+Lessthen --> lt
+Grater then or equal to --> ge
+Lessthen or equal --> le
+
+my $str1 = "perl"
+my $str2 = "pythan"
+my $result = $str1 cmp $str2
+#result will be -1 as $str1 < $str2
+my $result = $str2 cmp $str1
+#result will be 1 as $str2 > $str1
+
+Assignment operators:
+
+Below operators will perform the operation and assign the value to the left operator
++=
+-=
+*=
+/=
+%=
+**=
+.= (Concatination)
+
+Ex:
+$n1 = 10; 
+$n2 = 10;
+$n1 += $n2 ($n1 = $n1 + $n2)
+$n1 -= $n2 ($n1 = $n1 - $n2)
+$n1 *= $n2 ($n1 = $n1 * $n2)
+$n1 /= $n2 ($n1 = $n1 / $n2)
+$n1 %= $n2 ($n1 = $n1 % $n2)
+$n1 **= $n2 ($n1 = $n1 ** $n2)
+
+Logical operators:
+
+and / &&
+or / ||
+not
+
+Quote like operators:
+
+Single quote --> q{}
+Double quote --> qq{}
+Bctics --> qx{}
+Array --> qw{}
+

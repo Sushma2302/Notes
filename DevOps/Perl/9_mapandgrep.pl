@@ -34,11 +34,22 @@ print keys %hash,"\n";
 @result = grep{/^J/} @array;
 print "Starting with J @result\n";
  
+ 
+ $result = grep{/^J/} @array;
+print "Count of words which starting with J $result\n";
+
+
 @result = grep{!/^J/} @array;
 print "Not starting with J @result\n";
+
+$result = grep{!/^J/} @array;
+print "Count of words which not starting with J  $result\n";
  
 @result = grep{ /N/ } @array;
 print "Contains N @result\n";
+
+$result = grep{ /N/ } @array;
+print "Count of words which contains N $result\n";
  
 #combination of map and gerp
 # i would like the convett the aray to hash and assing value as 4 for the elements which are sterted with J/
