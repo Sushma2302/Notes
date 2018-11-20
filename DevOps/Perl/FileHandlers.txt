@@ -1,0 +1,29 @@
+#File handlers
+
+File handlers will access the file. 
+
+We can open a file in two ways
+
+1. open FileHandler , Filename with mode
+2. sysopen FileHandler, FileName, Mode
+
+Different filemodes:
+
+Reading --> open(FileHandler, "<FileName")
+Writting --> open(FileHandler, ">FileName")
+Appending --> open(FileHandler, ">>FileName")
+Reading and Writting --> open(FileHandler, "+<FileName")
+Reading, Writting and creating --> open(FileHandler, "+>FileName")
+Reading, Writting, Appending and creating --> open(FileHandler, "+>>FileName")
+Closing--> close(<FileHandler>)
+
+Reading file in an array:
+
+@filelines = <FileHandler>
+
+Writting into file -->  print <FileHandler> "<Content>"
+Rename a file --> rename ("<Old FileName>","<new FileName>")
+Delet a file --> delete("FileName")
+Current position of a file --> tell <FileHandler>
+To point to a position of a file --> seek <FileHandler><Position><Whence>
+

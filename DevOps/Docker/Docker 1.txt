@@ -3,9 +3,9 @@ Docker is a container
 Advantages:
 
 We can run any number of containers in one OS.
-Each container is a process in the mail OS where as in VM ware every VM itself a OS.
+Each container is a process in the main OS where as in VM ware every VM itself a OS.
 In this way we can save memoey and processing power.
-Container can bring up in seconds where as VM tale minutes to start
+Container can bring up in seconds where as VM take minutes to start
 Effective space and memory and process management.
 
 Docker internally uses name spaces(name spaces concept is there in the linex from the begining)

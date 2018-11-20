@@ -53,7 +53,7 @@ git commit -m "commit message"
 To know the list of commits we can use
 
 #git log (It will show(SHA1 Number - a randomly generated 40 charactors length hexadecimal number) the list of commits happened in the repository)
-#git log --oenline (it will give breaf info only)
+#git log --oneline (it will give breaf info only)
 #git log --since=2018-12-31
 #git log --until=2018-12-31
 #git log --author="srinivas"
